@@ -16,67 +16,37 @@ a:hover {
   color:white
 }
 
-/* プリローダーのスタイル */
-#preloader {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #f2f8f3; /* ソフトな緑色の背景 */
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ナビゲーションメニュー */
+.navbar-nav .nav-link:hover {
+  background-color: #299329;
+  color: #fff;
 }
-
-/* .leaf-loader {
-  width: 60px;
-  height: 60px;
-  background: url('../img/leaf.png') no-repeat center center;
-  background-size: contain;
-  animation: spinLeaf 2s linear infinite;
+/* ドロップダウンメニューのリンク */
+.navbar-nav .dropdown-menu .dropdown-item:hover,
+.navbar-nav .dropdown-menu .dropdown-item:focus {
+  background-color: #299329;
+  color: #fff;
 }
-@keyframes spinLeaf {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-} */
-
-/* ボールが跳ねるアニメーション */
-.ball-loader {
-  width: 200px;
-  height: 200px;
-  background: url('../img/ball.webp') no-repeat center center;
-  background-size: contain;
-  animation: bounce 2s ease infinite;
-}
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-/* 色見本用テストコード */
-/* h2 {
-  font-weight: 600;
-  background-color:  #98FF98;
-  color: #006400;
-} */
-/* 色見本用テストコード */
-/* h2 {
-  font-weight: 600;
-  background-color:   #508370;
-  color: #FFFFF0;
-} */
 
 .heading {
   font-weight: 600;
   background-color:  #CCFFCC;
   color: #004D40;
 }
+
+/* 色見本用テストコード */
+/* .heading {
+  font-weight: 600;
+  background-color:  #98FF98;
+  color: #006400;
+} */
+/* 色見本用テストコード */
+/* .heading {
+  font-weight: 600;
+  background-color:   #508370;
+  color: #FFFFF0;
+} */
+
 .hero {
   width: 100%;
 }
@@ -121,7 +91,7 @@ section {
 
 .section-header {
   position: relative;
-  padding: 1em 2em;
+  padding: 1em 3em;
   text-align: center;
 }
 
@@ -150,8 +120,32 @@ section {
 }
 
 footer {
-  background-color: rgba(18, 153, 16, 0.5);
+  background-color: rgba(0, 45, 55, 0.5);
   height: auto;
+  color: #E0E0E0;;
+}
+/* フッターaタグホバー時のアニメーション */
+footer a {
+  position: relative;
+  text-decoration: none;
+  color: #E0E0E0;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px; /* 下線の厚さ */
+  bottom: 0;
+  left: 0;
+  background-color: #FFFFFF; /* 下線の色 */
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+footer a:hover::after {
+  visibility: visible;
+  width: 100%;
 }
 .copyright {
   height: 50px;
@@ -165,6 +159,10 @@ footer {
   animation-duration: 2s;
   animation-fill-mode: forwards;
 }
+.policy-list {
+  list-style: none;
+}
+
 
 /* profile */
 .greet {
@@ -181,115 +179,52 @@ footer {
   font-size: 16px;
 }
 
-/* AnimationsCss */
-/* 初期状態として非表示にする */
-.slide-right-content,
-.slide-left-content,
-.slide-bottom-content,
-.slide-top-content,
-.slide-in {
-    opacity: 0;
-    visibility: hidden;
+/* contact */
+.form-group a {
+  color: rgb(76, 76, 220);
+  text-decoration: underline rgb(76, 76, 220);
+  font-weight: 600;
+}
+.form-group a:hover {
+  color: #4a2554;
+  font-weight: 600;
 }
 
-/* .visibleクラスが追加されたら表示 */
-.visible {
-    opacity: 1;
-    visibility: visible;
+.form-group label {
+  font-size: calc(12px + 2 * ((100vw - 320px) / 879));
+  vertical-align: text-bottom;
 }
 
-/* 左からのスライドイン */
-@keyframes slide-in-left {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
+
+/* Topへスクロールボタン全体 */
+#page_top{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 10px;
+  bottom: 15px;
+  background: #22c486;
+  border: 3px rgb(0, 80, 54) solid;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+
+  /* Font Awesomeを使用 */
+    /* htmlの</body>直前に以下のscriptコードを記述。
+  <script src="https://kit.fontawesome.com/e7eaec89a2.js" crossorigin="anonymous"></script> */
+  #page_top::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f077';
+    font-size: 16px;
+    color: #ffffff;
+    position: absolute;
+    width: 50px;
+    height: 16px;
+    top: 0;
+    bottom: 5px;
+    right: 0;
+    left: -2px;
+    margin: auto;
+    text-align: center;
+    text-decoration: none;
   }
-}
-
-.slide-in-left {
-  animation-name: slide-in-left;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
-
-/* 右からのスライドイン */
-@keyframes slide-in-right {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.slide-in-right {
-  animation-name: slide-in-right;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
-
-
-
-/* 下から上へのスライドイン */
-@keyframes slide-in-bottom {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.slide-in-bottom {
-  animation-name: slide-in-bottom;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
-
-/* 上から下へのスライドイン */
-@keyframes slide-in-top {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.slide-in-top {
-  animation-name: slide-in-top;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-/* フェードイン */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.fade-in {
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-.visible.fade-in {
-    animation-name: fade-in;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-}
 
